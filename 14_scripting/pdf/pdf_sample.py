@@ -25,6 +25,7 @@ def add_watermark(src_pdf, watermark_pdf, output_pdf):
         watermark_page = PyPDF2.PdfReader(watermark_pdf).pages[0]
         writer = PyPDF2.PdfWriter()
         for page in reader.pages:
+
             page.merge_page(watermark_page)
             writer.add_page(page)
         with open(output_pdf, "wb") as output:
